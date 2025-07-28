@@ -1,0 +1,196 @@
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif; /* A clean, common font */
+    line-height: 1.6; /* Spacing between lines of text */
+    margin: 0; /* Remove default margin around the body */
+    padding: 0; /* Remove default padding */
+    background-color: #f4f4f4; /* Light grey background for the whole page */
+    color: #333; /* Dark grey text color */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+/* Header Styles */
+header {
+    background-color: #333; /* Dark background for the header */
+    color: #fff; /* White text color */
+    padding: 1rem 0; /* Top/bottom padding, no left/right padding */
+    text-align: center; /* Center align text inside header */
+    position: sticky; /* Make header stick to the top when scrolling */
+    top: 0; /* Stick to the very top */
+    z-index: 1000; /* Ensure header stays on top of other content */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+}
+
+header h1 {
+    margin: 0; /* Remove default margin for h1 */
+    font-size: 2.5rem; /* Larger font size for the main title */
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style: none; /* Remove bullet points from list */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+nav ul li {
+    display: inline-block; /* Display list items side-by-side */
+    margin: 0 20px; /* Horizontal spacing between menu items */
+}
+
+nav a {
+    color: #fff; /* White link color */
+    text-decoration: none; /* Remove underline from links */
+    font-weight: bold; /* Bold text */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+nav a:hover {
+    color: #00bcd4; /* Change color on hover */
+}
+
+/* Main Content Area */
+main {
+    padding: 40px 20px; /* Padding around the main content */
+    max-width: 1000px; /* Maximum width for content */
+    margin: 20px auto; /* Center the main content area with top/bottom margin */
+    background-color: #fff; /* White background for the content area */
+    box-shadow: 0 0 15px rgba(0,0,0,0.1); /* Soft shadow for the content box */
+    border-radius: 8px; /* Slightly rounded corners */
+}
+
+/* Section Styles */
+section {
+    margin-bottom: 60px; /* Spacing between sections */
+    padding: 20px;
+    border-bottom: 1px solid #eee; /* Light line at the bottom of each section */
+}
+
+section:last-child {
+    border-bottom: none; /* No border for the last section */
+}
+
+section h2 {
+    color: #007bff; /* Blue color for section titles */
+    text-align: center; /* Center align section titles */
+    margin-bottom: 30px; /* Spacing below section titles */
+    font-size: 2rem; /* Larger font size for section titles */
+    border-bottom: 2px solid #007bff; /* Underline for section titles */
+    display: inline-block; /* Make underline fit text width */
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* Ensure it takes full width for centering */
+    width: fit-content; /* Fit underline to content width */
+}
+
+section p {
+    text-align: justify; /* Justify text for better readability */
+    margin-bottom: 15px;
+}
+
+/* Project Item Styles (for future use in Projects section) */
+.project-item {
+    background-color: #f9f9f9; /* Lighter background for project boxes */
+    border: 1px solid #ddd; /* Light border */
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 5px; /* Slightly rounded corners */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+}
+
+.project-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Enhanced shadow on hover */
+}
+
+.project-item h3 {
+    color: #0056b3; /* Darker blue for project titles */
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+.project-item p {
+    margin-bottom: 10px;
+}
+
+.project-item a {
+    display: inline-block; /* Make links behave like blocks for margin */
+    background-color: #007bff; /* Blue button background */
+    color: #fff; /* White text */
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.project-item a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center; /* Center align text */
+    padding: 1.5rem 0; /* Top/bottom padding */
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    font-size: 0.9rem; /* Smaller font size */
+    margin-top: 40px; /* Space above footer */
+}
+
+/* Responsive Design: Basic Media Queries */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem; /* Adjust header title size for smaller screens */
+    }
+
+    nav ul li {
+        margin: 0 10px; /* Reduce spacing between nav items */
+    }
+
+    main {
+        padding: 20px 15px; /* Reduce padding for main content */
+        margin: 15px auto;
+    }
+
+    section h2 {
+        font-size: 1.8rem; /* Adjust section title size */
+    }
+
+    .project-item {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    nav ul li {
+        display: block; /* Stack nav items vertically on very small screens */
+        margin: 10px 0; /* Add vertical spacing */
+    }
+
+    main {
+        padding: 15px 10px;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    .project-item h3 {
+        font-size: 1.5rem;
+    }
+
+    .project-item a {
+        display: block; /* Make buttons full width */
+        margin-right: 0;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}
