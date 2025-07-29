@@ -4,16 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
             
-            // Check if it's the main "Experience" link (dropbtn)
-            // On desktop (window width > 768px), it toggles the sub-menu.
-            // On mobile, the sub-menu is always visible when nav is shown, so no special toggle.
+            // Main "Experience" link (toggle sub-menu only on desktop)
             if (this.classList.contains('main-experience-link') && window.innerWidth > 768) {
-                e.preventDefault(); // Prevent default scroll for main Experience link on desktop
-                const subMenu = this.nextElementSibling; // Get the ul.experience-sub-menu
+                e.preventDefault(); // Prevent default scroll
+                const subMenu = this.nextElementSibling; // Get ul.experience-sub-menu
                 if (subMenu) {
                     subMenu.classList.toggle('show'); // Toggle 'show' class to display/hide sub-menu
 
-                    // Close other sub-menus if any (optional, not strictly needed with one sub-menu)
+                    // Close other open sub-menus (optional)
                     document.querySelectorAll('.experience-sub-menu.show').forEach(otherSubMenu => {
                         if (otherSubMenu !== subMenu) {
                             otherSubMenu.classList.remove('show');
@@ -21,9 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
             } 
-            // For actual section links (About Me, Contact, and sub-menu Experience items)
+            // Actual section links (About Me, Contact, Experience sub-menu items)
             else {
-                // For sub-menu items and other main links, perform smooth scroll
+                // Perform smooth scroll for sub-menu items and other main links
                 e.preventDefault(); 
                 
                 const targetSection = document.querySelector(targetId);
@@ -34,9 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
 
-                // If the clicked link is NOT a sub-menu item (e.g., About Me, Contact), 
-                // close the experience sub-menu on desktop if it's open.
-                // Sub-menu items should NOT close the menu.
+                // If the clicked link is not a sub-menu item (e.g., About Me, Contact),
+                // close the experience sub-menu if it's open on desktop
                 if (!this.closest('.experience-sub-menu')) {
                     const experienceSubMenu = document.querySelector('.experience-sub-menu');
                     if (experienceSubMenu && experienceSubMenu.classList.contains('show') && window.innerWidth > 768) {
@@ -47,16 +44,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Close the experience sub-menu if the user clicks outside of it on desktop
+    // Close experience sub-menu when clicking outside on desktop
     window.addEventListener('click', function(event) {
         const sidebarNav = document.querySelector('.sidebar-nav');
         const experienceSubMenu = document.querySelector('.experience-sub-menu');
         const mainExperienceLink = document.querySelector('.main-experience-link');
 
-        // Check if the click is outside the sidebar navigation and its children, 
-        // and the sub-menu is open, and it's on desktop.
+        // If the click target is not the main experience link or inside the sub-menu,
+        // and the sub-menu is open, and it's desktop
         if (window.innerWidth > 768 && experienceSubMenu && experienceSubMenu.classList.contains('show')) {
-            // If the click target is not the main experience link, nor within the sub-menu itself
             if (!mainExperienceLink.contains(event.target) && !experienceSubMenu.contains(event.target)) {
                 experienceSubMenu.classList.remove('show');
             }
@@ -71,3 +67,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Project Carousel JavaScript logic removed as it's now CSS-driven.

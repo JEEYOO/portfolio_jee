@@ -4,46 +4,44 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Dark background */
-    color: #E0E0E0; /* Light text color */
+    background-color: #121212; /* Entire page background color: very dark gray */
+    color: #E0E0E0; /* Default text color for the entire page: light gray */
 }
 
 .container {
     display: flex; /* Use flexbox for sidebar and main content layout */
-    min-height: 100vh; /* Ensure container takes full viewport height */
+    min-height: 100vh; /* Container takes full viewport height */
 }
 
 /* Sidebar Header Styles */
 .sidebar-header {
-    width: 250px; /* Fixed width for the sidebar */
-    background-color: #000000; /* Dark background for sidebar */
+    width: 250px; /* Fixed sidebar width */
+    background-color: #333333; /* Sidebar background color: Brighter for better visibility */
     color: #E0E0E0; /* Text color */
     padding: 20px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); /* Shadow on the right side */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); /* Right shadow */
     display: flex; /* Flex container for sidebar content */
-    flex-direction: column; /* Stack items vertically */
-    justify-content: space-between; /* Space out top and bottom content */
-    align-items: center; /* Center items horizontally in sidebar */
-    position: sticky; /* Sticky positioning for sidebar */
-    top: 0; /* Stick to the top */
+    flex-direction: column; /* Stack vertically */
+    justify-content: space-between; /* Distribute space top/bottom */
+    align-items: center; /* Center horizontally */
+    position: sticky; /* Fixed on scroll */
+    top: 0; /* Stick to top */
     height: 100vh; /* Take full viewport height */
-    overflow-y: auto; /* Enable scrolling if content exceeds height */
+    overflow-y: auto; /* Scroll if content overflows */
+    z-index: 1000; /* Ensure it's above other elements when scrolling */
 }
 
 .sidebar-header h1 {
     font-size: 2rem;
-    color: #007bff; /* Accent color for name */
+    color: #007bff; /* Highlight color for name */
     margin-bottom: 20px;
     text-align: center;
 }
 
-/* Profile photo moved to About Me section, so this is removed from sidebar styles */
-/* .sidebar-profile-img { display: none; } */ 
-
 /* Sidebar Navigation Styles */
 .sidebar-nav {
     width: 100%; /* Full width within sidebar */
-    flex-grow: 1; /* Allow nav to take available space */
+    flex-grow: 1; /* Occupy remaining space */
 }
 
 .sidebar-nav ul {
@@ -53,51 +51,51 @@ body {
 }
 
 .sidebar-nav ul li {
-    margin-bottom: 10px; /* Space between main nav items */
+    margin-bottom: 10px; /* Spacing between main menu items */
     position: relative; /* For sub-menu positioning */
 }
 
 .sidebar-nav ul li a {
-    color: #E0E0E0; /* Nav link color */
+    color: #E0E0E0; /* Link color */
     text-decoration: none;
     font-weight: bold;
-    display: block; /* Make link clickable block */
+    display: block; /* Make link a block for larger clickable area */
     padding: 12px 15px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    border-radius: 4px; /* Slightly rounded corners for links */
+    border-radius: 4px; /* Slightly rounded corners */
 }
 
 .sidebar-nav ul li a:hover {
-    background-color: #1A1A1A; /* Darker background on hover */
-    color: #007bff; /* Accent color on hover */
+    background-color: #444444; /* Background color on hover (slightly darker than sidebar) */
+    color: #007bff; /* Highlight color on hover */
 }
 
 /* Experience Sub-Menu Styles */
 .experience-sub-menu {
     list-style: none;
     padding: 0;
-    margin: 5px 0 0 15px; /* Indent sub-menu */
-    max-height: 0; /* Initially hidden */
-    overflow: hidden; /* Hide overflow content */
-    transition: max-height 0.3s ease-out; /* Smooth transition for showing/hiding */
-    border-left: 2px solid #007bff; /* Add a vertical line for visual hierarchy */
+    margin: 5px 0 0 15px; /* Sub-menu indentation */
+    max-height: 0; /* Hidden initially */
+    overflow: hidden; /* Hide overflowing content */
+    transition: max-height 0.3s ease-out; /* Smooth transition for show/hide */
+    border-left: 2px solid #007bff; /* Vertical line for visual hierarchy */
 }
 
 .experience-sub-menu li a {
-    font-weight: normal; /* Lighter font for sub-items */
-    font-size: 0.8em; /* Smaller font for sub-items */
+    font-weight: normal; /* Font weight for sub-items */
+    font-size: 0.8em; /* Font size for sub-items */
     padding: 8px 15px; /* Smaller padding */
     color: #B0B0B0; /* Sub-item text color */
 }
 
 .experience-sub-menu li a:hover {
-    background-color: #151515; /* Even darker background on hover */
+    background-color: #3B3B3B; /* Darker background on hover */
     color: #007bff;
 }
 
 /* JavaScript class to show sub-menu */
 .experience-sub-menu.show {
-    max-height: 300px; /* Increased max-height for more items */
+    max-height: 300px; /* Increased height in case of many items */
 }
 
 /* Sidebar Footer */
@@ -105,119 +103,134 @@ body {
     width: 100%;
     text-align: center;
     padding-top: 20px;
-    border-top: 1px solid #1A1A1A; /* Separator line */
-    color: #707070; /* Lighter color for footer text */
+    border-top: 1px solid #555555; /* Separator line with better contrast */
+    color: #707070; /* Footer text color */
     font-size: 0.8em;
 }
 
 /* Main Content Area Styles */
 .main-content {
-    flex-grow: 1; /* Take remaining space */
-    padding: 40px 30px; /* Padding for the main content */
-    /* max-width will be implicitly handled by flex-grow and sidebar width */
+    flex-grow: 1; /* Occupy all remaining space */
+    padding: 40px 30px; /* Main content padding */
+    box-sizing: border-box; /* Include padding in width */
 }
 
-/* Section Styles */
+/* General Section Styles (applies to Experience, Projects sections) */
 section {
     margin-bottom: 40px;
-    padding: 30px; /* Increased padding for sections */
-    background-color: #212121; /* Section background */
+    padding: 30px; /* Section padding */
+    background-color: #212121; /* Section background: dark gray */
     border-radius: 8px;
     box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3); /* Inner shadow */
-    scroll-margin-top: 20px; /* Offset for smooth scrolling target */
+    scroll-margin-top: 20px; /* Offset for scroll target */
 }
 
-section:first-child {
-    margin-top: 0; /* No top margin for the first section */
+/* About Me Section Specific Styles */
+section#about {
+    background-color: #212121; /* Consistent dark background */
+    color: #E0E0E0; /* Light text for dark background */
+    padding: 50px 40px; /* Increased padding */
+    border-radius: 8px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3); /* Consistent with other sections */
 }
 
-section h2 {
-    color: #007bff; /* Section title accent */
-    font-size: 2.2rem; /* Slightly larger titles */
-    margin-bottom: 25px;
-    text-align: left; /* Align titles to left */
+section#about h2 {
+    color: #007bff; /* Title highlight color */
+    font-size: 2.5rem; /* Larger title */
+    text-align: center; /* Center align title */
+    margin-bottom: 40px;
     border-bottom: 2px solid #007bff; /* Underline effect */
     padding-bottom: 10px;
+    display: inline-block; /* Underline matches text width */
+    margin-left: auto;
+    margin-right: auto;
 }
 
-section p {
-    line-height: 1.8;
-    color: #D0D0D0; /* Body text color */
-    margin-bottom: 1em; /* Paragraph spacing */
-}
-
-/* About Content Layout (re-added for photo) */
+/* About Content Layout - Text wrapping around image */
 .about-content {
-    display: flex; /* Use flexbox */
-    flex-direction: column; /* Default to column for small screens */
-    align-items: center; /* Center items */
-    gap: 30px; /* Space between items */
     margin-top: 30px;
 }
 
-/* Profile Photo Styling - Large & Unique */
+/* Profile Photo Styling - Only border and subtle lift on hover */
 .profile-photo {
-    flex-shrink: 0; /* Don't shrink photo */
-    width: 280px; /* Larger photo width */
-    height: 280px; /* Larger photo height */
-    border-radius: 50%; /* Circular photo */
+    flex-shrink: 0; /* Prevent shrinking */
+    width: 200px; /* Photo width */
+    height: 200px; /* Photo height */
+    border-radius: 50%; /* Circular */
     overflow: hidden; /* Hide overflow */
-    box-shadow: 0 0 0 8px rgba(0, 123, 255, 0.5), /* Outer glow effect */
-                0 0 0 16px rgba(0, 123, 255, 0.3), /* Another outer glow */
-                0 0 0 24px rgba(0, 123, 255, 0.1); /* Fainter outer glow */
-    border: 3px solid #007bff; /* Primary border */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer; /* Indicate clickable/interactive */
+    
+    border: 4px solid #007bff; /* Main blue border */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Subtle outer shadow */
+    
+    position: relative; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for lift */
+    cursor: pointer; /* Indicate interactivity */
+
+    float: left; /* Float photo to the left */
+    margin-right: 35px; /* Space between photo and text */
+    margin-bottom: 20px; /* Space below photo when text wraps */
 }
 
+/* Hover effects for profile photo: only lift */
 .profile-photo:hover {
-    transform: scale(1.03); /* Slightly enlarge on hover */
-    box-shadow: 0 0 0 8px rgba(0, 123, 255, 0.7), /* Stronger glow on hover */
-                0 0 0 16px rgba(0, 123, 255, 0.5),
-                0 0 0 24px rgba(0, 123, 255, 0.2);
+    transform: translateY(-5px); /* Only lift slightly upwards */
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.7); /* Slightly stronger shadow on hover */
 }
 
 .profile-photo img {
     width: 100%; /* Fill container */
     height: 100%; /* Fill container */
-    object-fit: cover; /* Maintain aspect ratio */
-    display: block; /* Remove extra space */
+    object-fit: cover; /* Cover with aspect ratio maintained */
+    display: block; /* Remove unnecessary whitespace */
+    border-radius: 50%; /* Ensure image itself is circular */
 }
 
-/* Bio Text Styling */
+/* Bio Text Styling - Adjusted for floated image */
 .bio-text {
-    flex-grow: 1; /* Take remaining space */
-    max-width: 700px; /* Limit text width for readability */
-    margin: 0 auto; /* Center bio text */
-    text-align: justify; /* Justify text for better appearance */
+    overflow: hidden; /* Clear float (allows text to wrap correctly around photo) */
+    text-align: left; /* Left align text */
 }
 
-.bio-text h3 {
-    color: #007bff;
+/* Clearfix for about-content after float */
+.about-content::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+section#about .bio-text p {
+    color: #E0E0E0; /* Light text for dark background */
+    margin-bottom: 1em; /* Paragraph spacing */
+}
+
+section#about .bio-text h3 {
+    color: #007bff; /* Blue for skills heading */
     margin-top: 30px;
     margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #333333; /* Darker border for dark background */
     padding-bottom: 5px;
 }
 
-.bio-text ul {
-    list-style: none;
+section#about .bio-text ul {
+    list-style: none; /* Remove default bullet points */
     padding: 0;
     margin: 0;
 }
 
-.bio-text ul li {
+section#about .bio-text ul li {
     margin-bottom: 8px;
     line-height: 1.5;
     font-size: 1.05rem;
+    color: #B0B0B0; /* List item text color */
 }
 
-.bio-text ul li strong {
-    color: #0056b3;
+section#about .bio-text ul li strong {
+    color: #007bff; /* Bold text color for skill categories */
     margin-right: 8px;
 }
 
-/* Experience Item Styling (already defined, ensure consistency) */
+
+/* Experience Item Styling */
 .experience-item {
     background-color: #1A1A1A;
     border-radius: 8px;
@@ -267,7 +280,7 @@ section p {
 
 /* Links in content */
 a {
-    color: #0A84FF;
+    color: #0A84FF; /* Default link color */
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -277,16 +290,170 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Main Content Footer Styles (Contact info now consolidated here) */
+.main-footer {
+    background-color: #000000; /* Dark background */
+    color: #B0B0B0; /* Light text */
+    text-align: center;
+    padding: 25px 20px; /* Footer inner padding */
+    margin-top: 40px; /* Space above footer */
+    border-radius: 8px; /* Same rounded corners as sections */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Shadow */
+}
+
+.main-footer p {
+    margin: 5px 0; /* Footer paragraph spacing */
+    line-height: 1.5;
+}
+
+.main-footer a {
+    color: #0A84FF; /* Link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #007bff; /* Link hover color */
+    text-decoration: underline;
+}
+
+/* Project Carousel Styles (now a full section) */
+section#projects {
+    margin-top: 50px; /* Spacing from previous section */
+    position: relative;
+    padding: 30px; /* Standard section padding */
+}
+
+section#projects h3 {
+    text-align: center;
+    color: #007bff; /* Title color */
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.project-carousel {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Keep items in a single line */
+    padding-bottom: 20px; /* Space for scrollbar */
+    -webkit-overflow-scrolling: touch; 
+    scroll-snap-type: x mandatory; 
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #007bff #333; /* Firefox scrollbar color */
+}
+
+/* Webkit (Chrome, Safari, Edge) scrollbar styles */
+.project-carousel::-webkit-scrollbar {
+    height: 10px; /* Height of the scrollbar */
+}
+
+.project-carousel::-webkit-scrollbar-track {
+    background: #333; /* Color of the scrollbar track */
+    border-radius: 5px;
+}
+
+.project-carousel::-webkit-scrollbar-thumb {
+    background-color: #007bff; /* Color of the scrollbar thumb */
+    border-radius: 5px;
+    border: 2px solid #333; /* Border around the thumb */
+}
+
+.carousel-track {
+    display: flex; /* Use flexbox to align items horizontally */
+    flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
+    padding: 10px 0; /* Vertical padding only, horizontal spacing from item margins */
+    gap: 20px; /* Gap between items */
+    justify-content: center; /* Center items if there are fewer than full width */
+}
+
+.project-item {
+    flex-shrink: 0; /* Prevent items from shrinking */
+    width: 250px; /* Fixed width for project items */
+    min-height: 380px; /* Adjusted min-height for better text fit */
+    background-color: #1A1A1A; /* Dark background for project items */
+    color: #E0E0E0; /* Light text for project items */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    scroll-snap-align: start; /* Snap to start of item when scrolling */
+    border: 1px solid #333; /* Subtle border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.project-item h4 {
+    color: #007bff; /* Project title color */
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.project-item h4 a {
+    color: #007bff; /* Link color for title */
+    text-decoration: none; /* No underline by default */
+    transition: color 0.3s ease;
+}
+
+.project-item h4 a:hover {
+    color: #0A84FF; /* Hover color for title link */
+    text-decoration: underline; /* Underline on hover */
+}
+
+.project-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    color: #B0B0B0; /* Description text color */
+    white-space: normal; /* Ensure text wraps within the paragraph */
+    overflow: hidden; /* Hide overflowing text */
+}
+
 
 /* Media Queries for Responsiveness */
 
 /* Desktop / Larger screens - About Me layout */
 @media (min-width: 769px) {
+    .main-content {
+        padding: 40px 60px; /* Increased padding on larger screens to prevent content from touching edges */
+    }
+
+    section#about h2 {
+        font-size: 2.8rem; /* Larger title on desktop */
+    }
+
     .about-content {
-        flex-direction: row; /* Row for larger screens */
-        align-items: flex-start; /* Align top */
-        justify-content: center; /* Center items */
-        gap: 50px; /* Wider gap between photo and text */
+        display: block; /* Ensure float works correctly */
+    }
+
+    .profile-photo {
+        width: 220px; /* Slightly larger photo on desktop */
+        height: 220px;
+        margin-right: 40px; /* Wider spacing on desktop */
+        margin-bottom: 0; /* Remove bottom margin when floated */
+    }
+
+    .bio-text {
+        text-align: justify; /* Justify text on desktop */
+    }
+
+    /* Project item sizing for desktop */
+    .project-item {
+        width: 250px; /* Ensure fixed width is maintained */
+        min-height: 380px; /* Consistent height for desktop */
     }
 }
 
@@ -297,15 +464,15 @@ a:hover {
     }
 
     .sidebar-header {
-        width: 100%; /* Full width for sidebar on mobile */
+        width: 100%; /* Full width sidebar on mobile */
         height: auto; /* Auto height */
-        position: static; /* No longer fixed/sticky */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow at bottom */
+        position: static; /* Unfix position */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Bottom shadow */
         padding: 15px 20px;
         flex-direction: row; /* Horizontal layout for mobile header */
-        justify-content: space-between; /* Space out items */
+        justify-content: space-between; /* Distribute items */
         align-items: center;
-        overflow-y: visible; /* Allow overflow for toggled menu */
+        overflow-y: visible; /* Allow overflow for toggle menu */
     }
 
     .sidebar-header h1 {
@@ -313,11 +480,8 @@ a:hover {
         margin-bottom: 0;
     }
 
-    /* .sidebar-profile-img removed as photo is now in About Me */
-
     .sidebar-nav {
-        /* This will become the toggled menu */
-        display: none; /* Hide nav by default on mobile */
+        display: none; /* Hidden by default on mobile */
         flex-direction: column;
         width: 100%;
         text-align: center;
@@ -334,10 +498,10 @@ a:hover {
     }
 
     .experience-sub-menu {
-        margin-left: 0; /* Remove indent on mobile */
-        max-height: none; /* Allow full height when visible */
-        display: block; /* Always visible if parent is active on mobile */
-        border-left: none; /* No vertical line on mobile */
+        margin-left: 0; /* Remove indentation on mobile */
+        max-height: none; /* Allow full height when displayed */
+        display: block; /* Always visible when parent is active */
+        border-left: none; /* Remove vertical line on mobile */
     }
 
     .experience-sub-menu li a {
@@ -346,7 +510,7 @@ a:hover {
     }
 
     .sidebar-footer {
-        display: none; /* Hide footer on mobile sidebar */
+        display: none; /* Hide mobile sidebar footer */
     }
 
     .main-content {
@@ -366,22 +530,53 @@ a:hover {
         padding-bottom: 0;
     }
     
-    .bio-text {
-        text-align: left; /* Mobile text align */
+    /* About Me section mobile adjustments */
+    section#about {
+        padding: 30px 20px; /* Adjust padding on mobile */
     }
 
-    /* About Me section specific adjustments for mobile */
+    section#about h2 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+
     .about-content {
-        flex-direction: column; /* Ensure stacked layout */
-        align-items: center; /* Center when stacked */
+        flex-direction: column; /* Stack vertically */
+        align-items: center; /* Center align */
         text-align: center; /* Center text */
         gap: 20px;
+        display: flex; /* Keep flex for stacking on mobile */
     }
     .profile-photo {
-        width: 200px; /* Smaller photo on mobile */
-        height: 200px;
-        box-shadow: 0 0 0 6px rgba(0, 123, 255, 0.4), /* Adjust glow for mobile */
-                    0 0 0 12px rgba(0, 123, 255, 0.2),
-                    0 0 0 18px rgba(0, 123, 255, 0.1);
+        width: 150px; /* Smaller photo on mobile */
+        height: 150px;
+        float: none; /* Remove float on mobile (stack vertically) */
+        margin: 0 0 20px 0; /* Center align and add bottom margin */
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.4); /* Adjust mobile shadow */
+    }
+
+    .bio-text {
+        max-width: 100%; /* Full width text */
+        text-align: left; /* Left align mobile text */
+        overflow: visible; /* No need to clear float */
+    }
+    section#about .bio-text h3 {
+        text-align: center; /* Center align skills heading */
+    }
+    section#about .bio-text ul {
+        text-align: left; /* Left align list */
+        padding-left: 20px; /* Add list padding */
+    }
+
+    .main-footer {
+        padding: 20px 15px; /* Adjust padding on mobile */
+        margin-top: 30px; /* Adjust margin on mobile */
+    }
+
+    /* Project item sizing for mobile */
+    .project-item {
+        width: 80vw; /* Use viewport width for better sizing on various mobile devices */
+        max-width: 300px; /* Cap max width on larger mobiles */
+        min-height: 280px; /* Adjusted min-height for mobile projects, slightly taller for content */
     }
 }
