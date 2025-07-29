@@ -3,43 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Developer Portfolio - Jee Yoo</title> <link rel="stylesheet" href="css/style.css"> 
+    <title>My Developer Portfolio - Jee Yoo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Hello! I'm Jee Yoo.</h1> <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li> <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="about"> <h2>About Me</h2>
-            <div class="about-content">
-                <div class="profile-photo">
-                    <img src="images/profile_photo.jpeg" alt="Your Profile Photo">
+    <div class="container">
+        <header class="sidebar-header">
+            <div class="profile-area">
+                <h1>Jee Yoo</h1>
                 </div>
-                <div class="bio-text">
-                    <p>I am a 4-year experienced Developer, specializing in SAP to build Business Intelligence.</p>
-                    <p>My journey in development started and constantly learning new technologies to create impactful solutions.</p>
-                    <h3>Skills</h3>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li>
+                        <a href="#experience" class="main-experience-link">Experience</a>
+                        <ul class="experience-sub-menu">
+                            <li><a href="#uq-experience">UQ</a></li>
+                            <li><a href="#military-experience">Military Service</a></li>
+                            <li><a href="#ssp-experience">Student Staff Partner</a></li>
+                            <li><a href="#cj-experience">CJ Olivenetworks</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <footer class="sidebar-footer">
+                <p>&copy; 2025 Jee Yoo</p>
+            </footer>
+        </header>
+
+        <main class="main-content">
+            <section id="about">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="profile-photo">
+                        <img src="images/profile_photo.jpeg" alt="Jee Yoo's Profile Photo">
+                    </div>
+                    <div class="bio-text">
+                        <p>I am a 4-year experienced Developer, specializing in SAP to build Business Intelligence.</p>
+                        <p>My journey in development started and constantly learning new technologies to create impactful solutions.</p>
+                        <h3>Skills</h3>
+                        <ul>
+                            <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript, React/Vue/Angular</li>
+                            <li><strong>Backend:</strong> Node.js/Python/Java/PHP, Express/Django/Spring if applicable</li>
+                            <li><strong>Databases:</strong> MongoDB/PostgreSQL/MySQL</li>
+                            <li><strong>Tools & Others:</strong> Git, Docker/AWS/Figma</li>
+                        </ul>
+                    </div>
+                </div>
+                </section>
+
+            <section id="experience">
+                <h2>Experience</h2>
+
+                <div class="experience-item" id="uq-experience">
+                    <h3>The University of Queensland (UQ)</h3>
+                    <p class="period">Feb 2015 - Sep 2020</p>
+                    <p class="role">Bachelor of Computer Science</p>
                     <ul>
-                        <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript, React/Vue/Angular </li>
-                        <li><strong>Backend:</strong> Node.js/Python/Java/PHP, Express/Django/Spring if applicable</li>
-                        <li><strong>Databases:</strong> MongoDB/PostgreSQL/MySQL </li>
-                        <li><strong>Tools & Others:</strong> Git, Docker/AWS/Figma </li>
+                        <li>Specialized in Software Engineering and Data Science.</li>
+                        <li>Completed projects in various programming languages including Python, Java, and C++.</li>
+                        <li>Participated in hackathons and coding competitions.</li>
                     </ul>
-                    <p>Feel free to connect with me!</p>
                 </div>
-            </div>
-        </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2025 Jee Yoo. All rights reserved.</p> </footer>
+                <div class="experience-item" id="military-experience">
+                    <h3>Military Service (육군 병장 만기전역)</h3>
+                    <p class="period">May 2016 - Feb 2018</p>
+                    <p class="role">IT Support Specialist</p>
+                    <ul>
+                        <li>Managed network infrastructure and provided technical support for military IT systems.</li>
+                        <li>Ensured smooth operation of communication equipment and software.</li>
+                        <li>Developed problem-solving skills and adapted to high-pressure environments.</li>
+                    </ul>
+                </div>
 
-    <script src="js/script.js"></script> 
+                <div class="experience-item" id="ssp-experience">
+                    <h3>Student Staff Partner</h3>
+                    <p class="period">Feb 2019 - Jan 2020</p>
+                    <p class="role">IT Support / Web Developer (part-time)</p>
+                    <ul>
+                        <li>Provided IT support to university students and staff.</li>
+                        <li>Developed and maintained internal web tools using HTML, CSS, and JavaScript.</li>
+                        <li>Improved user experience by redesigning the existing booking system interface.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item" id="cj-experience">
+                    <h3>CJ Olivenetworks (CJ올리브네트웍스)</h3>
+                    <p class="period">Jan 2021 - May 2025</p>
+                    <p class="role">AI/Big Data Developer</p>
+                    <ul>
+                        <li>Developed and maintained AI/Big Data platforms for various business units.</li>
+                        <li>Utilized Python and SQL for data extraction, transformation, and loading (ETL).</li>
+                        <li>Contributed to optimizing data processing pipelines, reducing computation time by 20%.</li>
+                        <li>Collaborated with cross-functional teams to deliver data-driven solutions.</li>
+                    </ul>
+                </div>
+            </section>
+
+            
+            <footer class="main-footer">
+                <p>You can reach me at: <a href="mailto:jeesang15@gmail.com">jeesang15@gmail.com</a> or <a href="https://www.linkedin.com/in/jee-yoo-792864175/" target="_blank">LinkedIn</a></p>
+                <p>Feel free to connect with me!</p>
+            </footer>
+        </main>
+    </div>
 </body>
 </html>

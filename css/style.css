@@ -1,196 +1,387 @@
-/* General Body Styles */
+/* General Body & Container Styles */
 body {
-    font-family: 'Arial', sans-serif; /* A clean, common font */
-    line-height: 1.6; /* Spacing between lines of text */
-    margin: 0; /* Remove default margin around the body */
-    padding: 0; /* Remove default padding */
-    background-color: #f4f4f4; /* Light grey background for the whole page */
-    color: #333; /* Dark grey text color */
-    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Dark background */
+    color: #E0E0E0; /* Light text color */
 }
 
-/* Header Styles */
-header {
-    background-color: #333; /* Dark background for the header */
-    color: #fff; /* White text color */
-    padding: 1rem 0; /* Top/bottom padding, no left/right padding */
-    text-align: center; /* Center align text inside header */
-    position: sticky; /* Make header stick to the top when scrolling */
-    top: 0; /* Stick to the very top */
-    z-index: 1000; /* Ensure header stays on top of other content */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+.container {
+    display: flex; /* Use flexbox for sidebar and main content layout */
+    min-height: 100vh; /* Ensure container takes full viewport height */
 }
 
-header h1 {
-    margin: 0; /* Remove default margin for h1 */
-    font-size: 2.5rem; /* Larger font size for the main title */
+/* Sidebar Header Styles */
+.sidebar-header {
+    width: 250px; /* Fixed width for the sidebar */
+    background-color: #000000; /* Dark background for sidebar */
+    color: #E0E0E0; /* Text color */
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); /* Shadow on the right side */
+    display: flex; /* Flex container for sidebar content */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Space out top and bottom content */
+    align-items: center; /* Center items horizontally in sidebar */
+    position: sticky; /* Sticky positioning for sidebar */
+    top: 0; /* Stick to the top */
+    height: 100vh; /* Take full viewport height */
+    overflow-y: auto; /* Enable scrolling if content exceeds height */
 }
 
-/* Navigation Styles */
-nav ul {
-    list-style: none; /* Remove bullet points from list */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
+.sidebar-header h1 {
+    font-size: 2rem;
+    color: #007bff; /* Accent color for name */
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-nav ul li {
-    display: inline-block; /* Display list items side-by-side */
-    margin: 0 20px; /* Horizontal spacing between menu items */
+/* Profile photo moved to About Me section, so this is removed from sidebar styles */
+/* .sidebar-profile-img { display: none; } */ 
+
+/* Sidebar Navigation Styles */
+.sidebar-nav {
+    width: 100%; /* Full width within sidebar */
+    flex-grow: 1; /* Allow nav to take available space */
 }
 
-nav a {
-    color: #fff; /* White link color */
-    text-decoration: none; /* Remove underline from links */
-    font-weight: bold; /* Bold text */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-nav a:hover {
-    color: #00bcd4; /* Change color on hover */
+.sidebar-nav ul li {
+    margin-bottom: 10px; /* Space between main nav items */
+    position: relative; /* For sub-menu positioning */
 }
 
-/* Main Content Area */
-main {
-    padding: 40px 20px; /* Padding around the main content */
-    max-width: 1000px; /* Maximum width for content */
-    margin: 20px auto; /* Center the main content area with top/bottom margin */
-    background-color: #fff; /* White background for the content area */
-    box-shadow: 0 0 15px rgba(0,0,0,0.1); /* Soft shadow for the content box */
-    border-radius: 8px; /* Slightly rounded corners */
+.sidebar-nav ul li a {
+    color: #E0E0E0; /* Nav link color */
+    text-decoration: none;
+    font-weight: bold;
+    display: block; /* Make link clickable block */
+    padding: 12px 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 4px; /* Slightly rounded corners for links */
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: #1A1A1A; /* Darker background on hover */
+    color: #007bff; /* Accent color on hover */
+}
+
+/* Experience Sub-Menu Styles */
+.experience-sub-menu {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 15px; /* Indent sub-menu */
+    max-height: 0; /* Initially hidden */
+    overflow: hidden; /* Hide overflow content */
+    transition: max-height 0.3s ease-out; /* Smooth transition for showing/hiding */
+    border-left: 2px solid #007bff; /* Add a vertical line for visual hierarchy */
+}
+
+.experience-sub-menu li a {
+    font-weight: normal; /* Lighter font for sub-items */
+    font-size: 0.8em; /* Smaller font for sub-items */
+    padding: 8px 15px; /* Smaller padding */
+    color: #B0B0B0; /* Sub-item text color */
+}
+
+.experience-sub-menu li a:hover {
+    background-color: #151515; /* Even darker background on hover */
+    color: #007bff;
+}
+
+/* JavaScript class to show sub-menu */
+.experience-sub-menu.show {
+    max-height: 300px; /* Increased max-height for more items */
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #1A1A1A; /* Separator line */
+    color: #707070; /* Lighter color for footer text */
+    font-size: 0.8em;
+}
+
+/* Main Content Area Styles */
+.main-content {
+    flex-grow: 1; /* Take remaining space */
+    padding: 40px 30px; /* Padding for the main content */
+    /* max-width will be implicitly handled by flex-grow and sidebar width */
 }
 
 /* Section Styles */
 section {
-    margin-bottom: 60px; /* Spacing between sections */
-    padding: 20px;
-    border-bottom: 1px solid #eee; /* Light line at the bottom of each section */
+    margin-bottom: 40px;
+    padding: 30px; /* Increased padding for sections */
+    background-color: #212121; /* Section background */
+    border-radius: 8px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3); /* Inner shadow */
+    scroll-margin-top: 20px; /* Offset for smooth scrolling target */
 }
 
-section:last-child {
-    border-bottom: none; /* No border for the last section */
+section:first-child {
+    margin-top: 0; /* No top margin for the first section */
 }
 
 section h2 {
-    color: #007bff; /* Blue color for section titles */
-    text-align: center; /* Center align section titles */
-    margin-bottom: 30px; /* Spacing below section titles */
-    font-size: 2rem; /* Larger font size for section titles */
-    border-bottom: 2px solid #007bff; /* Underline for section titles */
-    display: inline-block; /* Make underline fit text width */
+    color: #007bff; /* Section title accent */
+    font-size: 2.2rem; /* Slightly larger titles */
+    margin-bottom: 25px;
+    text-align: left; /* Align titles to left */
+    border-bottom: 2px solid #007bff; /* Underline effect */
     padding-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block; /* Ensure it takes full width for centering */
-    width: fit-content; /* Fit underline to content width */
 }
 
 section p {
-    text-align: justify; /* Justify text for better readability */
+    line-height: 1.8;
+    color: #D0D0D0; /* Body text color */
+    margin-bottom: 1em; /* Paragraph spacing */
+}
+
+/* About Content Layout (re-added for photo) */
+.about-content {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Default to column for small screens */
+    align-items: center; /* Center items */
+    gap: 30px; /* Space between items */
+    margin-top: 30px;
+}
+
+/* Profile Photo Styling - Large & Unique */
+.profile-photo {
+    flex-shrink: 0; /* Don't shrink photo */
+    width: 280px; /* Larger photo width */
+    height: 280px; /* Larger photo height */
+    border-radius: 50%; /* Circular photo */
+    overflow: hidden; /* Hide overflow */
+    box-shadow: 0 0 0 8px rgba(0, 123, 255, 0.5), /* Outer glow effect */
+                0 0 0 16px rgba(0, 123, 255, 0.3), /* Another outer glow */
+                0 0 0 24px rgba(0, 123, 255, 0.1); /* Fainter outer glow */
+    border: 3px solid #007bff; /* Primary border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Indicate clickable/interactive */
+}
+
+.profile-photo:hover {
+    transform: scale(1.03); /* Slightly enlarge on hover */
+    box-shadow: 0 0 0 8px rgba(0, 123, 255, 0.7), /* Stronger glow on hover */
+                0 0 0 16px rgba(0, 123, 255, 0.5),
+                0 0 0 24px rgba(0, 123, 255, 0.2);
+}
+
+.profile-photo img {
+    width: 100%; /* Fill container */
+    height: 100%; /* Fill container */
+    object-fit: cover; /* Maintain aspect ratio */
+    display: block; /* Remove extra space */
+}
+
+/* Bio Text Styling */
+.bio-text {
+    flex-grow: 1; /* Take remaining space */
+    max-width: 700px; /* Limit text width for readability */
+    margin: 0 auto; /* Center bio text */
+    text-align: justify; /* Justify text for better appearance */
+}
+
+.bio-text h3 {
+    color: #007bff;
+    margin-top: 30px;
     margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
 }
 
-/* Project Item Styles (for future use in Projects section) */
-.project-item {
-    background-color: #f9f9f9; /* Lighter background for project boxes */
-    border: 1px solid #ddd; /* Light border */
+.bio-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bio-text ul li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    font-size: 1.05rem;
+}
+
+.bio-text ul li strong {
+    color: #0056b3;
+    margin-right: 8px;
+}
+
+/* Experience Item Styling (already defined, ensure consistency) */
+.experience-item {
+    background-color: #1A1A1A;
+    border-radius: 8px;
     padding: 25px;
-    margin-bottom: 25px;
-    border-radius: 5px; /* Slightly rounded corners */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-item:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Enhanced shadow on hover */
+.experience-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
-.project-item h3 {
-    color: #0056b3; /* Darker blue for project titles */
+.experience-item h3 {
+    color: #007bff;
     margin-top: 0;
-    font-size: 1.8rem;
-}
-
-.project-item p {
     margin-bottom: 10px;
+    font-size: 1.6rem;
 }
 
-.project-item a {
-    display: inline-block; /* Make links behave like blocks for margin */
-    background-color: #007bff; /* Blue button background */
-    color: #fff; /* White text */
-    padding: 8px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-right: 10px;
+.experience-item .period {
+    font-style: italic;
+    color: #B0B0B0;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.experience-item .role {
+    font-weight: bold;
+    color: #D0D0D0;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.experience-item ul {
+    list-style: disc;
+    padding-left: 25px;
     margin-top: 10px;
-    transition: background-color 0.3s ease;
 }
 
-.project-item a:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+.experience-item ul li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+    color: #E0E0E0;
 }
 
-/* Footer Styles */
-footer {
-    text-align: center; /* Center align text */
-    padding: 1.5rem 0; /* Top/bottom padding */
-    background-color: #333; /* Dark background */
-    color: #fff; /* White text */
-    font-size: 0.9rem; /* Smaller font size */
-    margin-top: 40px; /* Space above footer */
+/* Links in content */
+a {
+    color: #0A84FF;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* Responsive Design: Basic Media Queries */
+a:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+
+/* Media Queries for Responsiveness */
+
+/* Desktop / Larger screens - About Me layout */
+@media (min-width: 769px) {
+    .about-content {
+        flex-direction: row; /* Row for larger screens */
+        align-items: flex-start; /* Align top */
+        justify-content: center; /* Center items */
+        gap: 50px; /* Wider gap between photo and text */
+    }
+}
+
+/* Tablet / Smaller screens */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem; /* Adjust header title size for smaller screens */
+    .container {
+        flex-direction: column; /* Stack sidebar and main content vertically */
     }
 
-    nav ul li {
-        margin: 0 10px; /* Reduce spacing between nav items */
+    .sidebar-header {
+        width: 100%; /* Full width for sidebar on mobile */
+        height: auto; /* Auto height */
+        position: static; /* No longer fixed/sticky */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow at bottom */
+        padding: 15px 20px;
+        flex-direction: row; /* Horizontal layout for mobile header */
+        justify-content: space-between; /* Space out items */
+        align-items: center;
+        overflow-y: visible; /* Allow overflow for toggled menu */
     }
 
-    main {
-        padding: 20px 15px; /* Reduce padding for main content */
-        margin: 15px auto;
-    }
-
-    section h2 {
-        font-size: 1.8rem; /* Adjust section title size */
-    }
-
-    .project-item {
-        padding: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    nav ul li {
-        display: block; /* Stack nav items vertically on very small screens */
-        margin: 10px 0; /* Add vertical spacing */
-    }
-
-    main {
-        padding: 15px 10px;
-    }
-
-    section h2 {
+    .sidebar-header h1 {
         font-size: 1.5rem;
+        margin-bottom: 0;
     }
 
-    .project-item h3 {
-        font-size: 1.5rem;
-    }
+    /* .sidebar-profile-img removed as photo is now in About Me */
 
-    .project-item a {
-        display: block; /* Make buttons full width */
-        margin-right: 0;
-        margin-bottom: 10px;
+    .sidebar-nav {
+        /* This will become the toggled menu */
+        display: none; /* Hide nav by default on mobile */
+        flex-direction: column;
+        width: 100%;
         text-align: center;
+        margin-top: 10px; /* Space from header name */
+    }
+
+    .sidebar-nav ul li {
+        margin-bottom: 5px;
+    }
+
+    .sidebar-nav ul li a {
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    .experience-sub-menu {
+        margin-left: 0; /* Remove indent on mobile */
+        max-height: none; /* Allow full height when visible */
+        display: block; /* Always visible if parent is active on mobile */
+        border-left: none; /* No vertical line on mobile */
+    }
+
+    .experience-sub-menu li a {
+        padding: 5px 0;
+        font-size: 0.75em;
+    }
+
+    .sidebar-footer {
+        display: none; /* Hide footer on mobile sidebar */
+    }
+
+    .main-content {
+        padding: 20px 15px; /* Adjust main content padding */
+        max-width: 100%; /* Full width */
+    }
+
+    section {
+        padding: 20px;
+        margin-bottom: 25px;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+        text-align: center;
+        border-bottom: none; /* Remove underline on mobile */
+        padding-bottom: 0;
+    }
+    
+    .bio-text {
+        text-align: left; /* Mobile text align */
+    }
+
+    /* About Me section specific adjustments for mobile */
+    .about-content {
+        flex-direction: column; /* Ensure stacked layout */
+        align-items: center; /* Center when stacked */
+        text-align: center; /* Center text */
+        gap: 20px;
+    }
+    .profile-photo {
+        width: 200px; /* Smaller photo on mobile */
+        height: 200px;
+        box-shadow: 0 0 0 6px rgba(0, 123, 255, 0.4), /* Adjust glow for mobile */
+                    0 0 0 12px rgba(0, 123, 255, 0.2),
+                    0 0 0 18px rgba(0, 123, 255, 0.1);
     }
 }
