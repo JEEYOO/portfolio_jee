@@ -199,7 +199,7 @@ section#about .bio-text p {
 }
 
 section#about .bio-text h3 {
-    color: #E0E0E0; /* Purple for skills/certificates heading */
+    color: #8A2BE2; /* Purple for skills/certificates heading */
     margin-top: 30px;
     margin-bottom: 15px;
     border-bottom: 1px solid #333333; /* Darker border for dark background */
@@ -483,7 +483,7 @@ section#projects h3 { /* Projects title styles */
         height: auto; /* Auto height */
         position: static; /* Unfix position */
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Bottom shadow */
-        padding: 15px 20px;
+        padding: 15px 20px; /* Reduced padding for minimal height */
         flex-direction: row; /* Horizontal layout for mobile header */
         justify-content: space-between; /* Distribute items */
         align-items: center;
@@ -512,7 +512,8 @@ section#projects h3 { /* Projects title styles */
         flex-direction: column;
         width: 100%;
         text-align: center;
-        margin-top: 10px; /* Space from header name */
+        margin-top: 0; /* Remove top margin to pull up menu */
+        padding-bottom: 15px; /* Add some padding at the bottom when open */
     }
 
     /* Class to show mobile navigation (added by JavaScript) */
