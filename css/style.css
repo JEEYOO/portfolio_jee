@@ -26,14 +26,16 @@ body {
     align-items: center; /* Center horizontally */
     position: sticky; /* Fixed on scroll */
     top: 0; /* Stick to top */
-    height: 100vh; /* Take full viewport height */
+    /* height: 100vh; */ /* 이 줄을 제거하거나 주석 처리합니다. */
+    min-height: 100vh; /* 최소 높이를 100vh로 설정하여 내용이 적을 때도 화면을 채웁니다. */
     overflow-y: auto; /* Scroll if content overflows */
     z-index: 1000; /* Ensure it's above other elements when scrolling */
+    flex-shrink: 0; /* 이 속성을 추가하여 내용이 늘어나도 사이드바가 줄어들지 않도록 합니다. */
 }
 
 .sidebar-header h1 {
     font-size: 2rem;
-    color: #007bff; /* Highlight color for name */
+    color: #8A2BE2; /* Highlight color for name: Primary Purple */
     margin-bottom: 20px;
     text-align: center;
 }
@@ -67,7 +69,7 @@ body {
 
 .sidebar-nav ul li a:hover {
     background-color: #444444; /* Background color on hover (slightly darker than sidebar) */
-    color: #007bff; /* Highlight color on hover */
+    color: #8A2BE2; /* Highlight color on hover: Primary Purple */
 }
 
 /* Experience Sub-Menu Styles */
@@ -78,7 +80,7 @@ body {
     max-height: 0; /* Hidden initially */
     overflow: hidden; /* Hide overflowing content */
     transition: max-height 0.3s ease-out; /* Smooth transition for show/hide */
-    border-left: 2px solid #007bff; /* Vertical line for visual hierarchy */
+    border-left: 2px solid #8A2BE2; /* Vertical line for visual hierarchy: Primary Purple */
 }
 
 .experience-sub-menu li a {
@@ -90,7 +92,7 @@ body {
 
 .experience-sub-menu li a:hover {
     background-color: #3B3B3B; /* Darker background on hover */
-    color: #007bff;
+    color: #8A2BE2; /* Primary Purple */
 }
 
 /* JavaScript class to show sub-menu */
@@ -135,11 +137,11 @@ section#about {
 }
 
 section#about h2 {
-    color: #007bff; /* Title highlight color */
+    color: #8A2BE2; /* Title highlight color: Primary Purple */
     font-size: 2.5rem; /* Larger title */
     text-align: center; /* Center align title */
     margin-bottom: 40px;
-    border-bottom: 2px solid #007bff; /* Underline effect */
+    border-bottom: 2px solid #8A2BE2; /* Underline effect: Primary Purple */
     padding-bottom: 10px;
     display: inline-block; /* Underline matches text width */
     margin-left: auto;
@@ -157,12 +159,12 @@ section#about h2 {
     width: 200px; /* Photo width */
     height: 200px; /* Photo height */
     border-radius: 50%; /* Circular */
-    overflow: hidden; /* Hide overflow */
+    overflow: visible; /* Changed to visible to allow star to appear outside the circle border */
     
-    border: 4px solid #007bff; /* Main blue border */
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Subtle outer shadow */
+    border: 4px solid #8A2BE2; /* Main purple border */
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5); /* Subtle outer shadow: Primary Purple */
     
-    position: relative; 
+    position: relative; /* Essential for positioning the star icon */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for lift */
     cursor: pointer; /* Indicate interactivity */
 
@@ -174,16 +176,38 @@ section#about h2 {
 /* Hover effects for profile photo: only lift */
 .profile-photo:hover {
     transform: translateY(-5px); /* Only lift slightly upwards */
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.7); /* Slightly stronger shadow on hover */
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.7); /* Slightly stronger shadow on hover: Primary Purple */
 }
 
-.profile-photo img {
+.profile-photo > img:first-child { /* Selects the profile photo specifically */
     width: 100%; /* Fill container */
     height: 100%; /* Fill container */
     object-fit: cover; /* Cover with aspect ratio maintained */
     display: block; /* Remove unnecessary whitespace */
     border-radius: 50%; /* Ensure image itself is circular */
 }
+
+/* Star Icon Styles */
+.star-icon {
+    position: absolute;
+    width: 60px; /* Increased size of the star */
+    height: 60px;
+    top: 50%; /* Position at the vertical center of the photo */
+    left: 50%; /* Position at the horizontal center of the photo */
+    transform: translate(-50%, -50%) scale(0); /* Start completely hidden and at the center */
+    opacity: 0; /* Initially completely hidden */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2; /* Ensure it's above the profile photo */
+    /* Filter to change black star to purple */
+    filter: invert(30%) sepia(80%) saturate(2000%) hue-rotate(270deg) brightness(80%); /* Adjusted filter for a clear purple */
+}
+
+/* Show star icon on profile photo hover */
+.profile-photo:hover .star-icon {
+    opacity: 1; /* Show on hover */
+    transform: translate(-50%, -50%) scale(1); /* Grow to full size and remain centered */
+}
+
 
 /* Bio Text Styling - Adjusted for floated image */
 .bio-text {
@@ -204,7 +228,7 @@ section#about .bio-text p {
 }
 
 section#about .bio-text h3 {
-    color: #007bff; /* Blue for skills heading */
+    color: #E0E0E0; /* Purple for certificates heading */
     margin-top: 30px;
     margin-bottom: 15px;
     border-bottom: 1px solid #333333; /* Darker border for dark background */
@@ -225,7 +249,7 @@ section#about .bio-text ul li {
 }
 
 section#about .bio-text ul li strong {
-    color: #007bff; /* Bold text color for skill categories */
+    color: #8A2BE2; /* Bold text color for skill categories: Primary Purple */
     margin-right: 8px;
 }
 
@@ -246,7 +270,7 @@ section#about .bio-text ul li strong {
 }
 
 .experience-item h3 {
-    color: #007bff;
+    color: #8A2BE2; /* Primary Purple */
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 1.6rem;
@@ -280,13 +304,13 @@ section#about .bio-text ul li strong {
 
 /* Links in content */
 a {
-    color: #0A84FF; /* Default link color */
+    color: #9370DB; /* Default link color: Medium Purple */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #007bff;
+    color: #8A2BE2; /* Primary Purple */
     text-decoration: underline;
 }
 
@@ -307,13 +331,13 @@ a:hover {
 }
 
 .main-footer a {
-    color: #0A84FF; /* Link color */
+    color: #9370DB; /* Link color: Medium Purple */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #007bff; /* Link hover color */
+    color: #8A2BE2; /* Link hover color: Primary Purple */
     text-decoration: underline;
 }
 
@@ -326,10 +350,10 @@ section#projects {
 
 section#projects h3 {
     text-align: center;
-    color: #007bff; /* Title color */
+    color: #8A2BE2; /* Title color: Primary Purple */
     font-size: 1.8rem;
     margin-bottom: 30px;
-    border-bottom: 2px solid #007bff;
+    border-bottom: 2px solid #8A2BE2; /* Primary Purple */
     padding-bottom: 10px;
     display: inline-block;
     margin-left: auto;
@@ -344,7 +368,7 @@ section#projects h3 {
     -webkit-overflow-scrolling: touch; 
     scroll-snap-type: x mandatory; 
     scrollbar-width: thin; /* Firefox */
-    scrollbar-color: #007bff #333; /* Firefox scrollbar color */
+    scrollbar-color: #8A2BE2 #333; /* Firefox scrollbar color: Primary Purple */
 }
 
 /* Webkit (Chrome, Safari, Edge) scrollbar styles */
@@ -358,7 +382,7 @@ section#projects h3 {
 }
 
 .project-carousel::-webkit-scrollbar-thumb {
-    background-color: #007bff; /* Color of the scrollbar thumb */
+    background-color: #8A2BE2; /* Color of the scrollbar thumb: Primary Purple */
     border-radius: 5px;
     border: 2px solid #333; /* Border around the thumb */
 }
@@ -380,7 +404,7 @@ section#projects h3 {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     padding: 20px;
-    text-align: center;
+    text-align: left; /* 전체 프로젝트 아이템 텍스트 왼쪽 정렬 */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -395,33 +419,48 @@ section#projects h3 {
 }
 
 .project-item h4 {
-    color: #007bff; /* Project title color */
+    color: #8A2BE2; /* Project title color: Primary Purple */
     font-size: 1.3rem;
     margin-bottom: 10px;
     margin-top: 0;
+    text-align: center; /* 프로젝트 제목만 중앙 정렬 */
 }
 
 .project-item h4 a {
-    color: #007bff; /* Link color for title */
+    color: #8A2BE2; /* Link color for title: Primary Purple */
     text-decoration: none; /* No underline by default */
     transition: color 0.3s ease;
 }
 
 .project-item h4 a:hover {
-    color: #0A84FF; /* Hover color for title link */
+    color: #9370DB; /* Hover color for title link: Medium Purple */
     text-decoration: underline; /* Underline on hover */
 }
 
-.project-item p {
+/* 프로젝트 기간 및 내용 스타일 */
+.project-item .project-period,
+.project-item .project-description {
+    display: block; /* 각 span을 블록 요소로 만들어 줄바꿈 적용 */
     font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 15px;
-    flex-grow: 1;
-    color: #B0B0B0; /* Description text color */
-    white-space: normal; /* Ensure text wraps within the paragraph */
-    overflow: hidden; /* Hide overflowing text */
+    line-height: 1.4; /* 줄 간격 조절 */
+    margin-bottom: 5px; /* 각 요소 아래 간격 조절 */
+    color: #B0B0B0; /* 텍스트 색상 */
+    white-space: normal; /* 텍스트가 넘치면 줄바꿈 되도록 설정 */
+    overflow: hidden; /* 넘치는 텍스트 숨김 */
 }
 
+.project-item .project-period {
+    font-style: italic; /* 기간은 기울임꼴로 */
+    color: #D0D0D0; /* 기간 색상 조금 더 밝게 */
+    margin-bottom: 0px; /* 기간 바로 아래 내용이 오도록 간격 조절 */
+    text-align: center; /* 기간만 중앙 정렬 */
+}
+
+.project-item .project-description {
+    margin-top: 5px; /* 내용 위에 약간의 간격 */
+    flex-grow: 1; /* 남은 공간을 채우도록 설정 */
+    text-align: left; /* 내용은 왼쪽 정렬 유지 */
+}
 
 /* Media Queries for Responsiveness */
 
@@ -552,7 +591,17 @@ section#projects h3 {
         height: 150px;
         float: none; /* Remove float on mobile (stack vertically) */
         margin: 0 0 20px 0; /* Center align and add bottom margin */
-        box-shadow: 0 0 8px rgba(0, 123, 255, 0.4); /* Adjust mobile shadow */
+        box-shadow: 0 0 8px rgba(138, 43, 226, 0.4); /* Adjust mobile shadow: Primary Purple */
+        overflow: visible; /* Ensure star is visible on mobile too */
+    }
+
+    /* Star icon position adjustment for mobile */
+    .star-icon {
+        width: 30px; /* Smaller star on mobile */
+        height: 30px;
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%) scale(0); /* Ensure hidden and centered */
     }
 
     .bio-text {
