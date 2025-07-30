@@ -26,7 +26,6 @@ body {
     align-items: center; /* Center horizontally */
     position: sticky; /* Fixed on scroll */
     top: 0; /* Stick to top */
-    /* height: 100vh; */ /* 이 줄을 제거하거나 주석 처리합니다. */
     min-height: 100vh; /* 최소 높이를 100vh로 설정하여 내용이 적을 때도 화면을 채웁니다. */
     overflow-y: auto; /* Scroll if content overflows */
     z-index: 1000; /* Ensure it's above other elements when scrolling */
@@ -159,7 +158,7 @@ section#about h2 {
     width: 200px; /* Photo width */
     height: 200px; /* Photo height */
     border-radius: 50%; /* Circular */
-    overflow: visible; /* Changed to visible to allow star to appear outside the circle border */
+    overflow: hidden; /* Changed to hidden to clip anything outside the circle border */
     
     border: 4px solid #8A2BE2; /* Main purple border */
     box-shadow: 0 0 10px rgba(138, 43, 226, 0.5); /* Subtle outer shadow: Primary Purple */
@@ -187,28 +186,6 @@ section#about h2 {
     border-radius: 50%; /* Ensure image itself is circular */
 }
 
-/* Star Icon Styles */
-.star-icon {
-    position: absolute;
-    width: 60px; /* Increased size of the star */
-    height: 60px;
-    top: 50%; /* Position at the vertical center of the photo */
-    left: 50%; /* Position at the horizontal center of the photo */
-    transform: translate(-50%, -50%) scale(0); /* Start completely hidden and at the center */
-    opacity: 0; /* Initially completely hidden */
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 2; /* Ensure it's above the profile photo */
-    /* Filter to change black star to purple */
-    filter: invert(30%) sepia(80%) saturate(2000%) hue-rotate(270deg) brightness(80%); /* Adjusted filter for a clear purple */
-}
-
-/* Show star icon on profile photo hover */
-.profile-photo:hover .star-icon {
-    opacity: 1; /* Show on hover */
-    transform: translate(-50%, -50%) scale(1); /* Grow to full size and remain centered */
-}
-
-
 /* Bio Text Styling - Adjusted for floated image */
 .bio-text {
     overflow: hidden; /* Clear float (allows text to wrap correctly around photo) */
@@ -228,7 +205,7 @@ section#about .bio-text p {
 }
 
 section#about .bio-text h3 {
-    color: #E0E0E0; /* Purple for certificates heading */
+    color: #8A2BE2; /* Purple for certificates heading */
     margin-top: 30px;
     margin-bottom: 15px;
     border-bottom: 1px solid #333333; /* Darker border for dark background */
@@ -392,7 +369,7 @@ section#projects h3 {
     flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
     padding: 10px 0; /* Vertical padding only, horizontal spacing from item margins */
     gap: 20px; /* Gap between items */
-    justify-content: center; /* Center items if there are fewer than full width */
+    justify-content: flex-start; /* 아이템들을 왼쪽부터 정렬 */
 }
 
 .project-item {
@@ -462,12 +439,13 @@ section#projects h3 {
     text-align: left; /* 내용은 왼쪽 정렬 유지 */
 }
 
-/* Media Queries for Responsiveness */
 
-/* Desktop / Larger screens - About Me layout */
+/* --- Media Queries for Responsiveness --- */
+
+/* Desktop / Larger screens (min-width: 769px) */
 @media (min-width: 769px) {
     .main-content {
-        padding: 40px 60px; /* Increased padding on larger screens to prevent content from touching edges */
+        padding: 40px 60px; /* Increased padding on larger screens */
     }
 
     section#about h2 {
@@ -494,9 +472,14 @@ section#projects h3 {
         width: 250px; /* Ensure fixed width is maintained */
         min-height: 380px; /* Consistent height for desktop */
     }
+    
+    /* Mobile-specific elements hidden on desktop */
+    .menu-toggle {
+        display: none;
+    }
 }
 
-/* Tablet / Smaller screens */
+/* Tablet / Smaller screens (max-width: 768px) */
 @media (max-width: 768px) {
     .container {
         flex-direction: column; /* Stack sidebar and main content vertically */
@@ -519,12 +502,33 @@ section#projects h3 {
         margin-bottom: 0;
     }
 
+    /* Mobile Menu Toggle Button */
+    .menu-toggle {
+        display: block; /* Show on mobile */
+        background: none;
+        border: none;
+        color: #8A2BE2; /* Primary Purple */
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 1001; /* Ensure it's clickable */
+    }
+
     .sidebar-nav {
         display: none; /* Hidden by default on mobile */
         flex-direction: column;
         width: 100%;
         text-align: center;
         margin-top: 10px; /* Space from header name */
+    }
+
+    /* Class to show mobile navigation (added by JavaScript) */
+    .sidebar-nav.active {
+        display: flex; /* Show when active */
+    }
+
+    .sidebar-nav ul {
+        width: 100%;
     }
 
     .sidebar-nav ul li {
@@ -592,16 +596,7 @@ section#projects h3 {
         float: none; /* Remove float on mobile (stack vertically) */
         margin: 0 0 20px 0; /* Center align and add bottom margin */
         box-shadow: 0 0 8px rgba(138, 43, 226, 0.4); /* Adjust mobile shadow: Primary Purple */
-        overflow: visible; /* Ensure star is visible on mobile too */
-    }
-
-    /* Star icon position adjustment for mobile */
-    .star-icon {
-        width: 30px; /* Smaller star on mobile */
-        height: 30px;
-        top: 50%; /* Center vertically */
-        left: 50%; /* Center horizontally */
-        transform: translate(-50%, -50%) scale(0); /* Ensure hidden and centered */
+        overflow: hidden; /* Ensure anything outside the circle is clipped */
     }
 
     .bio-text {
