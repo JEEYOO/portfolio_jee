@@ -26,10 +26,10 @@ body {
     align-items: center; /* Center horizontally */
     position: sticky; /* Fixed on scroll */
     top: 0; /* Stick to top */
-    min-height: 100vh; /* 최소 높이를 100vh로 설정하여 내용이 적을 때도 화면을 채웁니다. */
+    min-height: 100vh; /* Minimum height for sidebar, expands with content */
     overflow-y: auto; /* Scroll if content overflows */
     z-index: 1000; /* Ensure it's above other elements when scrolling */
-    flex-shrink: 0; /* 이 속성을 추가하여 내용이 늘어나도 사이드바가 줄어들지 않도록 합니다. */
+    flex-shrink: 0; /* Prevents sidebar from shrinking when main content grows */
 }
 
 .sidebar-header h1 {
@@ -116,7 +116,7 @@ body {
     box-sizing: border-box; /* Include padding in width */
 }
 
-/* General Section Styles (applies to Experience, Projects sections) */
+/* General Section Styles (applies to About, Experience, Projects, Contact sections) */
 section {
     margin-bottom: 40px;
     padding: 30px; /* Section padding */
@@ -126,16 +126,8 @@ section {
     scroll-margin-top: 20px; /* Offset for scroll target */
 }
 
-/* About Me Section Specific Styles */
-section#about {
-    background-color: #212121; /* Consistent dark background */
-    color: #E0E0E0; /* Light text for dark background */
-    padding: 50px 40px; /* Increased padding */
-    border-radius: 8px;
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3); /* Consistent with other sections */
-}
-
-section#about h2 {
+/* Section Titles */
+section h2 {
     color: #8A2BE2; /* Title highlight color: Primary Purple */
     font-size: 2.5rem; /* Larger title */
     text-align: center; /* Center align title */
@@ -147,38 +139,40 @@ section#about h2 {
     margin-right: auto;
 }
 
+
+/* About Me Section Specific Styles */
+section#about {
+    padding: 50px 40px; /* Increased padding */
+}
+
 /* About Content Layout - Text wrapping around image */
 .about-content {
     margin-top: 30px;
 }
 
-/* Profile Photo Styling - Only border and subtle lift on hover */
+/* Profile Photo Styling */
 .profile-photo {
     flex-shrink: 0; /* Prevent shrinking */
     width: 200px; /* Photo width */
     height: 200px; /* Photo height */
     border-radius: 50%; /* Circular */
-    overflow: hidden; /* Changed to hidden to clip anything outside the circle border */
-    
+    overflow: hidden; /* Clips anything outside the circular border */
     border: 4px solid #8A2BE2; /* Main purple border */
     box-shadow: 0 0 10px rgba(138, 43, 226, 0.5); /* Subtle outer shadow: Primary Purple */
-    
-    position: relative; /* Essential for positioning the star icon */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for lift */
-    cursor: pointer; /* Indicate interactivity */
-
+    position: relative; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    cursor: pointer; 
     float: left; /* Float photo to the left */
     margin-right: 35px; /* Space between photo and text */
     margin-bottom: 20px; /* Space below photo when text wraps */
 }
 
-/* Hover effects for profile photo: only lift */
 .profile-photo:hover {
     transform: translateY(-5px); /* Only lift slightly upwards */
     box-shadow: 0 0 15px rgba(138, 43, 226, 0.7); /* Slightly stronger shadow on hover: Primary Purple */
 }
 
-.profile-photo > img:first-child { /* Selects the profile photo specifically */
+.profile-photo > img:first-child { 
     width: 100%; /* Fill container */
     height: 100%; /* Fill container */
     object-fit: cover; /* Cover with aspect ratio maintained */
@@ -205,7 +199,7 @@ section#about .bio-text p {
 }
 
 section#about .bio-text h3 {
-    color: #8A2BE2; /* Purple for certificates heading */
+    color: #E0E0E0; /* Purple for skills/certificates heading */
     margin-top: 30px;
     margin-bottom: 15px;
     border-bottom: 1px solid #333333; /* Darker border for dark background */
@@ -229,7 +223,6 @@ section#about .bio-text ul li strong {
     color: #8A2BE2; /* Bold text color for skill categories: Primary Purple */
     margin-right: 8px;
 }
-
 
 /* Experience Item Styling */
 .experience-item {
@@ -318,19 +311,19 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Project Carousel Styles (now a full section) */
+/* Projects Section Styles (if present) */
 section#projects {
-    margin-top: 50px; /* Spacing from previous section */
+    margin-top: 50px;
     position: relative;
-    padding: 30px; /* Standard section padding */
+    padding: 30px;
 }
 
-section#projects h3 {
+section#projects h3 { /* Projects title styles */
     text-align: center;
-    color: #8A2BE2; /* Title color: Primary Purple */
+    color: #8A2BE2;
     font-size: 1.8rem;
     margin-bottom: 30px;
-    border-bottom: 2px solid #8A2BE2; /* Primary Purple */
+    border-bottom: 2px solid #8A2BE2;
     padding-bottom: 10px;
     display: inline-block;
     margin-left: auto;
@@ -369,7 +362,7 @@ section#projects h3 {
     flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
     padding: 10px 0; /* Vertical padding only, horizontal spacing from item margins */
     gap: 20px; /* Gap between items */
-    justify-content: flex-start; /* 아이템들을 왼쪽부터 정렬 */
+    justify-content: flex-start; /* Align items to the start (left) */
 }
 
 .project-item {
@@ -381,7 +374,7 @@ section#projects h3 {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     padding: 20px;
-    text-align: left; /* 전체 프로젝트 아이템 텍스트 왼쪽 정렬 */
+    text-align: left; /* Align text left within project item */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -400,7 +393,7 @@ section#projects h3 {
     font-size: 1.3rem;
     margin-bottom: 10px;
     margin-top: 0;
-    text-align: center; /* 프로젝트 제목만 중앙 정렬 */
+    text-align: center; /* Center align project title */
 }
 
 .project-item h4 a {
@@ -414,29 +407,29 @@ section#projects h3 {
     text-decoration: underline; /* Underline on hover */
 }
 
-/* 프로젝트 기간 및 내용 스타일 */
+/* Project period and description styles */
 .project-item .project-period,
 .project-item .project-description {
-    display: block; /* 각 span을 블록 요소로 만들어 줄바꿈 적용 */
+    display: block; /* Make each span a block element for line breaks */
     font-size: 0.95rem;
-    line-height: 1.4; /* 줄 간격 조절 */
-    margin-bottom: 5px; /* 각 요소 아래 간격 조절 */
-    color: #B0B0B0; /* 텍스트 색상 */
-    white-space: normal; /* 텍스트가 넘치면 줄바꿈 되도록 설정 */
-    overflow: hidden; /* 넘치는 텍스트 숨김 */
+    line-height: 1.4; /* Adjust line spacing */
+    margin-bottom: 5px; /* Adjust spacing below each element */
+    color: #B0B0B0; /* Text color */
+    white-space: normal; /* Allow text to wrap if it overflows */
+    overflow: hidden; /* Hide overflowing text */
 }
 
 .project-item .project-period {
-    font-style: italic; /* 기간은 기울임꼴로 */
-    color: #D0D0D0; /* 기간 색상 조금 더 밝게 */
-    margin-bottom: 0px; /* 기간 바로 아래 내용이 오도록 간격 조절 */
-    text-align: center; /* 기간만 중앙 정렬 */
+    font-style: italic; /* Period in italic */
+    color: #D0D0D0; /* Slightly brighter color for period */
+    margin-bottom: 0px; /* Adjust spacing for content below period */
+    text-align: center; /* Center align period */
 }
 
 .project-item .project-description {
-    margin-top: 5px; /* 내용 위에 약간의 간격 */
-    flex-grow: 1; /* 남은 공간을 채우도록 설정 */
-    text-align: left; /* 내용은 왼쪽 정렬 유지 */
+    margin-top: 5px; /* Small margin above description */
+    flex-grow: 1; /* Allow description to take available space */
+    text-align: left; /* Keep description text left-aligned */
 }
 
 
@@ -448,7 +441,7 @@ section#projects h3 {
         padding: 40px 60px; /* Increased padding on larger screens */
     }
 
-    section#about h2 {
+    section h2 {
         font-size: 2.8rem; /* Larger title on desktop */
     }
 
