@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 /* General Body & Container Styles */
 body {
     font-family: 'Arial', sans-serif;
@@ -30,6 +34,7 @@ body {
     overflow-y: auto; /* Scroll if content overflows */
     z-index: 1000; /* Ensure it's above other elements when scrolling */
     flex-shrink: 0; /* Prevents sidebar from shrinking when main content grows */
+    height: 100vh;
 }
 
 .sidebar-header h1 {
@@ -147,6 +152,7 @@ section#about {
 
 /* About Content Layout - Text wrapping around image */
 .about-content {
+    
     margin-top: 30px;
 }
 
@@ -277,6 +283,8 @@ a {
     color: #9370DB; /* Default link color: Medium Purple */
     text-decoration: none;
     transition: color 0.3s ease;
+    display: inline-block;
+
 }
 
 a:hover {
@@ -577,23 +585,44 @@ section#projects h3 { /* Projects title styles */
         margin-bottom: 25px;
     }
 
-    .about-content {
-        flex-direction: column; /* Stack vertically */
-        align-items: center; /* Center align */
-        text-align: center; /* Center text */
-        gap: 20px;
-        display: flex; /* Keep flex for stacking on mobile */
-    }
-    .profile-photo {
-        width: 150px; /* Smaller photo on mobile */
-        height: 150px;
-        float: none; /* Remove float on mobile (stack vertically) */
-        margin: 0 0 20px 0; /* Center align and add bottom margin */
-        box-shadow: 0 0 8px rgba(138, 43, 226, 0.4); /* Adjust mobile shadow: Primary Purple */
-        overflow: hidden; /* Ensure anything outside the circle is clipped */
+    /* 1. 부모 컨테이너: Flex를 완전히 끄고 일반 블록으로 변경 */
+    section#about .about-content {
+        display: block !important; /* Flexbox가 float을 무시하는 걸 방지 */
+        margin-top: 30px;
+        clear: both;
     }
 
+    /* 2. 이미지를 감싸는 링크(a태그)에 float 적용 */
+    section#about .about-content > a {
+        float: left !important; /* 무조건 왼쪽으로 띄움 */
+        display: block;
+        margin-right: 35px; /* 텍스트와의 간격 */
+        margin-bottom: 15px; /* 아래쪽으로 흐르는 텍스트와의 간격 */
+        width: 200px; /* PC 기준 이미지 크기 */
+        height: 200px;
+    }
+
+    /* 3. 이미지 내부 스타일 */
+    .profile-photo {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid #8A2BE2;
+        box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+        transition: transform 0.3s ease;
+    }
+
+    /* 4. 텍스트 영역: float된 이미지 옆으로 자연스럽게 흐르게 설정 */
     .bio-text {
+        display: block !important;
+        text-align: left;
+        overflow: visible; /* float 이미지 주변을 감싸기 위해 필요 */
+    }
+    
+
+    .bio-text {
+        display: block;
         max-width: 100%; /* Full width text */
         text-align: left; /* Left align mobile text */
         overflow: visible; /* No need to clear float */
