@@ -167,7 +167,7 @@ section#about {
     box-shadow: 0 0 10px rgba(138, 43, 226, 0.5); /* Subtle outer shadow: Primary Purple */
     position: relative; 
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
-    cursor: pointer; 
+    cursor: default; 
     float: left; /* Float photo to the left */
     margin-right: 35px; /* Space between photo and text */
     margin-bottom: 20px; /* Space below photo when text wraps */
