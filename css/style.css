@@ -44,7 +44,7 @@ body {
     text-align: center;
 }
 
-/* Sidebar Navigation Styles */
+
 .sidebar-nav {
     width: 100%;
     flex-grow: 1; /* Occupy remaining space */
@@ -95,49 +95,49 @@ body {
 }
 
 .experience-sub-menu li a:hover {
-    background-color: #3B3B3B; /* Darker background on hover */
-    color: #8A2BE2; /* Primary Purple */
+    background-color: #3B3B3B;
+    color: #8A2BE2;
 }
 
-/* JavaScript class to show sub-menu */
+
 .experience-sub-menu.show {
-    max-height: 300px; /* Increased height in case of many items */
+    max-height: 300px;
 }
 
-/* Sidebar Footer */
+
 .sidebar-footer {
     width: 100%;
     text-align: center;
     padding-top: 20px;
-    border-top: 1px solid #555555; /* Separator line with better contrast */
-    color: #707070; /* Footer text color */
+    border-top: 1px solid #555555;
+    color: #707070;
     font-size: 0.8em;
 }
 
-/* Main Content Area Styles */
+
 .main-content {
-    flex-grow: 1; /* Occupy all remaining space */
-    padding: 40px 30px; /* Main content padding */
-    box-sizing: border-box; /* Include padding in width */
+    flex-grow: 1;
+    padding: 40px 30px;
+    box-sizing: border-box;
 }
 
 /* General Section Styles (applies to About, Experience, Projects, Contact sections) */
 section {
     margin-bottom: 40px;
-    padding: 30px; /* Section padding */
-    background-color: #212121; /* Section background: dark gray */
+    padding: 30px;
+    background-color: #212121;
     border-radius: 8px;
-    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3); /* Inner shadow */
-    scroll-margin-top: 20px; /* Offset for scroll target */
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+    scroll-margin-top: 20px;
 }
 
-/* Section Titles */
+
 section h2 {
-    color: #8A2BE2; /* Title highlight color: Primary Purple */
-    font-size: 2.5rem; /* Larger title */
-    text-align: center; /* Center align title */
+    color: #8A2BE2;
+    font-size: 2.5rem;
+    text-align: center;
     margin-bottom: 40px;
-    border-bottom: 2px solid #8A2BE2; /* Underline effect: Primary Purple */
+    border-bottom: 2px solid #8A2BE2;
     padding-bottom: 10px;
     display: inline-block; /* Underline matches text width */
     margin-left: auto;
@@ -147,30 +147,29 @@ section h2 {
 
 /* About Me Section Specific Styles */
 section#about {
-    padding: 50px 40px; /* Increased padding */
+    padding: 50px 40px;
 }
 
-/* About Content Layout - Text wrapping around image */
+
 .about-content {
     
     margin-top: 30px;
 }
 
-/* Profile Photo Styling */
 .profile-photo {
-    flex-shrink: 0; /* Prevent shrinking */
-    width: 200px; /* Photo width */
-    height: 200px; /* Photo height */
-    border-radius: 50%; /* Circular */
-    overflow: hidden; /* Clips anything outside the circular border */
-    border: 4px solid #8A2BE2; /* Main purple border */
-    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5); /* Subtle outer shadow: Primary Purple */
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #8A2BE2;
+    box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
     position: relative; 
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
     cursor: default; 
-    float: left; /* Float photo to the left */
-    margin-right: 35px; /* Space between photo and text */
-    margin-bottom: 20px; /* Space below photo when text wraps */
+    float: left;
+    margin-right: 35px;
+    margin-bottom: 20px;
 }
 
 .profile-photo:hover {
