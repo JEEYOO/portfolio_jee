@@ -8,45 +8,45 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Entire page background color: very dark gray */
-    color: #E0E0E0; /* Default text color for the entire page: light gray */
+    background-color: #121212;
+    color: #E0E0E0
 }
 
 .container {
-    display: flex; /* Use flexbox for sidebar and main content layout */
-    min-height: 100vh; /* Container takes full viewport height */
+    display: flex; /* Use flexbox for placing sidebar and main content side by side */
+    min-height: 100vh;
 }
 
-/* Sidebar Header Styles */
+
 .sidebar-header {
-    width: 250px; /* Fixed sidebar width */
-    background-color: #333333; /* Sidebar background color: Brighter for better visibility */
-    color: #E0E0E0; /* Text color */
+    width: 250px;
+    background-color: #333333;
+    color: #E0E0E0;
     padding: 20px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); /* Right shadow */
-    display: flex; /* Flex container for sidebar content */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
     flex-direction: column; /* Stack vertically */
-    justify-content: space-between; /* Distribute space top/bottom */
-    align-items: center; /* Center horizontally */
-    position: sticky; /* Fixed on scroll */
-    top: 0; /* Stick to top */
-    min-height: 100vh; /* Minimum height for sidebar, expands with content */
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
     overflow-y: auto; /* Scroll if content overflows */
-    z-index: 1000; /* Ensure it's above other elements when scrolling */
-    flex-shrink: 0; /* Prevents sidebar from shrinking when main content grows */
+    z-index: 1000;
+    flex-shrink: 0;
     height: 100vh;
 }
 
 .sidebar-header h1 {
     font-size: 2rem;
-    color: #8A2BE2; /* Highlight color for name: Primary Purple */
+    color: #8A2BE2;
     margin-bottom: 20px;
     text-align: center;
 }
 
 /* Sidebar Navigation Styles */
 .sidebar-nav {
-    width: 100%; /* Full width within sidebar */
+    width: 100%;
     flex-grow: 1; /* Occupy remaining space */
 }
 
@@ -57,41 +57,41 @@ body {
 }
 
 .sidebar-nav ul li {
-    margin-bottom: 10px; /* Spacing between main menu items */
+    margin-bottom: 10px;
     position: relative; /* For sub-menu positioning */
 }
 
 .sidebar-nav ul li a {
-    color: #E0E0E0; /* Link color */
+    color: #E0E0E0;
     text-decoration: none;
     font-weight: bold;
-    display: block; /* Make link a block for larger clickable area */
+    display: block;
     padding: 12px 15px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    border-radius: 4px; /* Slightly rounded corners */
+    border-radius: 4px;
 }
 
 .sidebar-nav ul li a:hover {
-    background-color: #444444; /* Background color on hover (slightly darker than sidebar) */
-    color: #8A2BE2; /* Highlight color on hover: Primary Purple */
+    background-color: #444444;
+    color: #8A2BE2;
 }
 
-/* Experience Sub-Menu Styles */
+
 .experience-sub-menu {
     list-style: none;
     padding: 0;
-    margin: 5px 0 0 15px; /* Sub-menu indentation */
-    max-height: 0; /* Hidden initially */
-    overflow: hidden; /* Hide overflowing content */
-    transition: max-height 0.3s ease-out; /* Smooth transition for show/hide */
-    border-left: 2px solid #8A2BE2; /* Vertical line for visual hierarchy: Primary Purple */
+    margin: 5px 0 0 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    border-left: 2px solid #8A2BE2;
 }
 
 .experience-sub-menu li a {
-    font-weight: normal; /* Font weight for sub-items */
-    font-size: 0.8em; /* Font size for sub-items */
-    padding: 8px 15px; /* Smaller padding */
-    color: #B0B0B0; /* Sub-item text color */
+    font-weight: normal;
+    font-size: 0.8em;
+    padding: 8px 15px;
+    color: #B0B0B0; 
 }
 
 .experience-sub-menu li a:hover {
